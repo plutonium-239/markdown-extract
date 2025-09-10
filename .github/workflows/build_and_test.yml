@@ -1,5 +1,9 @@
 name: Build and Test
-on: [push, workflow_dispatch]
+on: 
+  push:
+    paths-ignore:
+      - '.github/**'
+  workflow_dispatch:
 jobs:
   build-rust:
     runs-on: windows-latest
