@@ -6,13 +6,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Verify package builds
-        run: cargo build --verbose --bin markdown-extract-cli --message-format json --release
+        run: cargo build --verbose --bin markdown-extract --message-format json --release
       - name: Run tests
         run: cargo test --verbose
       - uses: actions/upload-artifact@v4
         with:
           name: markdown-extract.exe
-          path: D:\a\markdown-extract\markdown-extract\target\release\markdown-extract-cli.exe
+          path: D:\a\markdown-extract\markdown-extract\target\release\markdown-extract.exe
 
   test-action:
     runs-on: windows-latest
