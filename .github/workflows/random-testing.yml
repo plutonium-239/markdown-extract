@@ -1,0 +1,16 @@
+name: random-testing
+
+on: [workflow_dispatch]
+
+jobs:
+  random:
+    runs-on: windows-2022
+    steps:
+      - name: test wget
+        continue-on-error: true
+        run: |
+          wget https://github.com/plutonium-239/markdown-extract/releases/download/v2.1.0/markdown-extract.exe
+      - name: test curl
+        continue-on-error: true
+        run: |
+          curl https://github.com/plutonium-239/markdown-extract/releases/download/v2.1.0/markdown-extract.exe -o markdown-extract.exe
