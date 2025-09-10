@@ -13,4 +13,5 @@ jobs:
       - name: test curl
         continue-on-error: true
         run: |
-          curl https://github.com/plutonium-239/markdown-extract/releases/download/v2.1.0/markdown-extract.exe -o markdown-extract.exe
+          curl -L https://github.com/plutonium-239/markdown-extract/releases/download/v2.1.0/markdown-extract.exe -o markdown-extract.exe
+          ls -lh
