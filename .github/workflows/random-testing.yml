@@ -6,12 +6,14 @@ jobs:
   random:
     runs-on: windows-2022
     steps:
-      - name: test wget
-        continue-on-error: true
-        run: |
-          wget https://github.com/plutonium-239/markdown-extract/releases/download/v2.1.0/markdown-extract.exe
+      # wget is not available
+      # - name: test wget
+      #   continue-on-error: true
+      #   run: |
+      #     wget https://github.com/plutonium-239/markdown-extract/releases/download/v2.1.0/markdown-extract.exe
       - name: test curl
-        continue-on-error: true
         run: |
           curl -L https://github.com/plutonium-239/markdown-extract/releases/download/v2.1.0/markdown-extract.exe -o markdown-extract.exe
-          ls -lh
+          ls
+          markdown-extract.exe "v2.0.0" ${{ github.workspace }}/crates/markdown-extract/CHANGELOG.md
+          { echo "markdown<<$EOF"; cat stdout; echo "$EOF"; } >> "$GITHUB_OUTPUT"
