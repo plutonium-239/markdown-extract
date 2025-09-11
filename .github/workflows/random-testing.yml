@@ -28,11 +28,11 @@ jobs:
           type stdout
           $EOF = "plutonium-239" -split "" | Get-Random -Shuffle | Join-String
           
-          echo markdown<<$EOF >> $GITHUB_OUTPUT
-          type stdout >> $GITHUB_OUTPUT
-          echo $EOF >> $GITHUB_OUTPUT
+          echo markdown<<$EOF >> $Env:GITHUB_OUTPUT
+          type stdout >> $Env:GITHUB_OUTPUT
+          echo $EOF >> $Env:GITHUB_OUTPUT
 
-          type $GITHUB_OUTPUT
+          type $Env:GITHUB_OUTPUT
 
       - name: result
         run: |
