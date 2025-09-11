@@ -25,6 +25,9 @@ jobs:
         run: |
           ./markdown-extract.exe "v2.0.0" changelog.md > stdout
           ls
+          type stdout
+          $EOF = "plutonium-239" -split "" | Get-Random -Shuffle | Join-String
+          
           echo markdown<<$EOF >> $GITHUB_OUTPUT
           type stdout >> $GITHUB_OUTPUT
           echo $EOF >> $GITHUB_OUTPUT
