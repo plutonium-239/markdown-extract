@@ -16,5 +16,8 @@ jobs:
           curl -L https://github.com/plutonium-239/markdown-extract/releases/download/v2.1.0/markdown-extract.exe -o markdown-extract.exe
           ls
           curl -L https://github.com/plutonium-239/markdown-extract/raw/refs/heads/master/crates/markdown-extract/CHANGELOG.md -o changelog.md
+          
+      - name: test markdown-extract
+        run: |
           ./markdown-extract.exe "v2.0.0" changelog.md > stdout
           { echo "markdown<<$EOF"; cat stdout; echo "$EOF"; } >> "$GITHUB_OUTPUT"
