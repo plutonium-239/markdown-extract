@@ -32,6 +32,7 @@ jobs:
           type stdout >> $GITHUB_OUTPUT
           echo $EOF >> $GITHUB_OUTPUT
 
+          type $GITHUB_OUTPUT
 
       - name: result
         run: |
