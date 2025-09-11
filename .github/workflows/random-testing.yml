@@ -25,11 +25,9 @@ jobs:
         run: |
           ./markdown-extract.exe "v2.0.0" changelog.md > stdout
           ls
-          (
-            echo markdown^^<<$EOF
-            type stdout
-            echo $EOF
-          ) >> "%GITHUB_OUTPUT%"
+          echo markdown<<$EOF >> $GITHUB_OUTPUT
+          type stdout >> $GITHUB_OUTPUT
+          echo $EOF >> $GITHUB_OUTPUT
 
 
       - name: result
