@@ -36,5 +36,5 @@ jobs:
 
       - name: result
         run: |
-          echo ${{ steps.test-markdown-extract.outputs.markdown }}
+          echo @"${{ steps.test-markdown-extract.outputs.markdown }}"@
       
