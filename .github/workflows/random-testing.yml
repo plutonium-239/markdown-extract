@@ -1,6 +1,10 @@
 name: random-testing
 
-on: [workflow_dispatch]
+on:
+  push:
+    paths:
+      - '.github/workflows/random-testing.yml'
+  workflow_dispatch:
 
 jobs:
   random:
@@ -17,7 +21,13 @@ jobs:
           ls
           curl -L https://github.com/plutonium-239/markdown-extract/raw/refs/heads/master/crates/markdown-extract/CHANGELOG.md -o changelog.md
           
-      - name: test markdown-extract
+      - id: test-markdown-extract
         run: |
           ./markdown-extract.exe "v2.0.0" changelog.md > stdout
+          ls
           { echo "markdown<<$EOF"; cat stdout; echo "$EOF"; } >> "$GITHUB_OUTPUT"
+
+      - name: result
+        run: |
+          echo ${{ steps.test-markdown-extract.outputs.markdown }}
+      
